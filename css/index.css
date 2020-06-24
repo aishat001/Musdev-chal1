@@ -8,14 +8,15 @@ body {
 
 /* NAVBAR */
 nav {
-    width: 100%;
-    text-align: center;
     padding: 1rem;
-    box-shadow: 4px 4px 15px black;
-    background-color: white;
+}
+div > nav {
+    width: 100vw;
+    text-align: center;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.76);
+    background-color: black;
     position: fixed;
-    color: black;
-
+    z-index: 6;
 }
 .icons {
     height: 0px;
@@ -36,82 +37,127 @@ ul {
 .logo {
     width: 20%;
     text-align: left;
+    color: darkgray;
+    font-size: 1.2rem;
+    /* background:linear-gradient(rgb(104, 183, 183), #673AB7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+span {
     color: orange;
 }
-.toggle {
+/* .toggle {
     width: 24px;
     height: 24px;
     border: 2px solid grey;
     border-radius: 7px;
     margin-right: 1.5rem;
+} */
+.toggle,
+ span.tog,
+  span.tog1,
+   span.tog2 {
+    background-color: white;
+    display: block;
+    border-radius: 2px;
+    transition: transform .3s ease;
+    width: 25px;
+    height: 3px;
+    margin-right: 1.5rem;
+    margin-bottom: 5px;
+}
+
+span.tog {
+    font-size: 1.2rem;
 }
 .show-link {
     height: 10rem;
 }
 a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 .new-icons {
     display: none;
+    cursor: pointer;
 }
 
 /* MAIN CONTENT */
+main{
+    background-color:whitesmoke;
+}
 section#home {
     width: 100%;
     height: 100vh;
-    background-color: #25325a;
+    background-color: #00000069;
     color: white;
     text-align: center;
+    position: relative;
+}
+.blur-image {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-image: url(../image/unsplash.jpg);
+    background-size: cover;
+    filter: blur(3px);
+}
+.app-img {
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    filter: invert(10);
 }
 section#about {
     width: 100%;
-    height: 90vh;
+    height: 100%;
     text-align: center;
     padding-top: 6rem;
-    color: white;
-    background-color: #25325a;
+    color: black;
     line-height: 2;
 }
 section#contact {
-    width: 100%;
-    height: 90vh;
-    background-color: #25325a;
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
     padding-top: 6rem;
     text-align: center;
-    color: white;
+    color: black;
+    align-items: center;
 }
 .row {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
 }
-h3 {
-    height: ;
-}
+
 .col-1 {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 30rem;
+    margin: auto;
+    align-items: center;
+    padding-top: 3rem;
+}
+.svg {
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40%;
-    height:30rem;
-    margin: auto;
-    align-items: center;
+    text-align: justify;
+    z-index: 1;
 }
-.svg {
-    width: 100%;
-    height: 10rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+svg,
+p {
+    margin-top: 1.5rem;
 }
 p {
-    width: 40%;
-    margin: auto;
-    height: 100%;
+    width: 60%;
+}
+.head {
+    font-size: 65px;
 }
 
 /*************** FORM ***********************************8*/
@@ -138,7 +184,7 @@ label {
 input {
     border:none;
     background-color: transparent;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.87);
+    border-bottom: 2px solid rgba(24, 23, 23, 0.87);
 }
 input:focus {
     outline: none;
@@ -146,26 +192,59 @@ input:focus {
 .btn {
     border: 1px solid rgba(194, 136, 28, 0.959);
     padding: .8rem;
-    color: white;
-
+    color: black;
+    cursor: pointer;
 }
-
-
+/* CARDS */
+    .cards {
+        width: 90%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .card {
+    height: 16rem;
+    width:15rem;
+    background-color:rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    color: black;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    transition: transform .3s;
+    }
+    .card-details > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card-details {
+        padding: 1rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .card:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+    }
 
 /* Image */
  div.img {
-     width: 20rem;
+     width:50%;
      height: 30rem;
      border-radius: 1rem;
  }
  img {
-     width: 100%;
+     width: 15rem;
      height: 100%;
      background-size: cover;
  }
-
+.icons {
+    cursor: pointer;
+}
 
 @media screen and (min-width:700px) {
+ 
     .toggle {
         display: none;
     }
@@ -183,6 +262,7 @@ input:focus {
         width: 20%;
         height: auto;
         text-align: right;
+        cursor: pointer;
     }
     .links {
         width: 40%;
@@ -195,6 +275,18 @@ input:focus {
 }
 
 @media screen and (max-width:700px) {
+
+    a  {
+        width: auto;
+    }
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 60%;
+        margin-bottom: 2rem;
+    }
     nav {
         height: auto;
         display: flex;
@@ -206,6 +298,7 @@ input:focus {
     }
     .logo {
         height: min-content;
+        cursor: pointer;
     }
     .show-link {
         display: flex;
@@ -226,6 +319,9 @@ input:focus {
     }
     .col-1 {
         width: 90%;
+        display: flex;
+        flex-direction: column-reverse;
+        padding-top: 10rem;
     }
     h2{
         font-size: 20px;
@@ -235,11 +331,45 @@ input:focus {
     p {
         width: 90%;
     }
+    svg {
+        width: auto;
+    }
 
+    section#home {
+        padding-top: 10rem;
+        background-color: transparent;
+    }
+    section#about {
+        padding-top: 15rem;
+    }
+    .svg {
+        width: 70%;
+        margin-bottom: 5rem;
+        text-align: center;
+    }
+    div.img {
+        width: 100%;
+    }
+    .head {
+        width: 100%;
+        font-size: 50px;
+        text-align: center;
+    }
 
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:470px) {
+    .head {
+        font-size: 40px;
+        text-align: center;
+    }
+    nav {
+        width: 100%;
+    }
+    .card{
+        width: 70%;
+        margin-bottom: 2rem;
+    }
     .show-link {
         margin-left: -2.8rem;
 }
@@ -247,5 +377,6 @@ input:focus {
 label {
     width: 100%;
 }
+
 
 }
