@@ -118,7 +118,7 @@ section#contact {
     display: flex;
     flex-direction: column;
     height: 70vh;
-    padding-top: 6rem;
+    padding-top: 2rem;
     text-align: center;
     color: black;
     align-items: center;
@@ -166,32 +166,30 @@ p {
         flex-direction: column;
         display: flex;
         justify-content: space-evenly;
-        width: 80%;
+        width: 60%;
         height: 15rem;
         margin: auto;
-        padding-top: 3rem;
         align-items: center;
+        background-color: white;
     }
-
-label {
-    width: 50%;
-    height: 4rem;
-    display: grid;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-    text-align: left;
+input::placeholder {
+    color: rgba(156, 156, 156, 0.788);
 }
 input {
+    width: inherit;
+    height: 2rem;
     border:none;
     background-color: transparent;
-    border-bottom: 2px solid rgba(24, 23, 23, 0.87);
+    border-bottom: 1px solid rgba(36, 35, 35, 0.781);
 }
 input:focus {
     outline: none;
 }
 .btn {
-    border: 1px solid rgba(194, 136, 28, 0.959);
-    padding: .8rem;
+    height: auto;
+    padding: .5rem;
+    border: 1px solid rgba(27, 27, 26, 0.959);
+    border-radius: 5px;
     color: black;
     cursor: pointer;
 }
@@ -206,12 +204,11 @@ input:focus {
     }
     .card {
     height: 16rem;
-    width:15rem;
+    width:calc(90% / 3);
     background-color:rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     color: black;
     border-radius: 3px;
-    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
     transition: transform .3s;
     }
     .card-details > p {
@@ -243,7 +240,8 @@ input:focus {
     cursor: pointer;
 }
 
-@media screen and (min-width:700px) {
+
+@media screen and (min-width:768px) {
  
     .toggle {
         display: none;
@@ -274,18 +272,28 @@ input:focus {
     }
 }
 
-@media screen and (max-width:700px) {
 
+@media screen and (max-width:768px) {
+    html {
+        font-size: 16px;
+    }
     a  {
         width: auto;
+    }
+    .blur-image {
+        height: 140vh;
     }
     .cards {
         flex-direction: column;
         align-items: center;
     }
     .card{
-        width: 60%;
+        width: calc(60%);
         margin-bottom: 2rem;
+    }
+    .card-details > p {
+        width: calc(100% / 2);
+
     }
     nav {
         height: auto;
@@ -321,7 +329,7 @@ input:focus {
         width: 90%;
         display: flex;
         flex-direction: column-reverse;
-        padding-top: 10rem;
+        padding-top: 7rem;
     }
     h2{
         font-size: 20px;
@@ -340,25 +348,33 @@ input:focus {
         background-color: transparent;
     }
     section#about {
-        padding-top: 15rem;
+        margin-top: 10rem;
     }
     .svg {
         width: 70%;
-        margin-bottom: 5rem;
+        margin-bottom: 3rem;
         text-align: center;
     }
     div.img {
-        width: 100%;
-    }
+        display: contents;
+        width: 70%;
+        align-items: center;    }
     .head {
         width: 100%;
         font-size: 50px;
         text-align: center;
     }
+    form {
+        width: 80%;
+    }
 
 }
 
 @media screen and (max-width:470px) {
+    html {
+        font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    }
+
     .head {
         font-size: 40px;
         text-align: center;
@@ -367,8 +383,12 @@ input:focus {
         width: 100%;
     }
     .card{
-        width: 70%;
+        width: calc(80%);
         margin-bottom: 2rem;
+    }
+    .card-details > p {
+        width: calc(60%);
+
     }
     .show-link {
         margin-left: -2.8rem;
